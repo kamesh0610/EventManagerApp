@@ -18,7 +18,11 @@ const reviewRoutes = require('./routes/reviews');
 const app = express();
 
 // Security middleware
-app.use(helmet());
+app.use(
+  helmet({
+    crossOriginResourcePolicy: false,
+  })
+);
 
 // Rate limiting
 const limiter = rateLimit({
