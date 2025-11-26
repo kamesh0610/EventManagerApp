@@ -421,16 +421,16 @@ const Dashboard: React.FC = () => {
   const selectedDateEvents = selectedDate ? getEventsForDate(selectedDate) : [];
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 bg-cream-10">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-          <p className="text-gray-600">Welcome back, {user?.name}</p>
+          <h1 className="text-2xl font-bold text-cream-500">Dashboard</h1>
+          <p className="text-cream-400">Welcome back, {user?.name}</p>
         </div>
         <div className="text-right">
-          <p className="text-sm text-gray-500">Today's Date</p>
-          <p className="font-medium text-gray-900">
+          <p className="text-sm text-cream-400">Today's Date</p>
+          <p className="font-medium text-cream-500">
             {new Date().toLocaleDateString('en-IN', {
               day: 'numeric',
               month: 'short',
@@ -442,33 +442,33 @@ const Dashboard: React.FC = () => {
 
       {/* Insights Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
-        <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+        <div className="bg-cream-100 p-4 rounded-xl shadow-sm border border-cream-200">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-500">Total Bookings</p>
-              <p className="text-2xl font-bold text-gray-900">{analytics.totalBookings}</p>
-              <p className="text-xs text-gray-500">This month</p>
+              <p className="text-sm font-medium text-cream-600">Total Bookings</p>
+              <p className="text-2xl font-bold text-cream-800">{analytics.totalBookings}</p>
+              <p className="text-xs text-cream-600">This month</p>
             </div>
-            <Calendar className="text-blue-500" size={24} />
+            <Calendar className="text-cream-500" size={24} />
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+        <div className="bg-cream-100 p-4 rounded-xl shadow-sm border border-cream-200">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-500">Completed Orders</p>
-              <p className="text-2xl font-bold text-gray-900">{analytics.completedOrders}</p>
-              <p className="text-xs text-gray-500">Lifetime</p>
+              <p className="text-sm font-medium text-cream-600">Completed Orders</p>
+              <p className="text-2xl font-bold text-cream-800">{analytics.completedOrders}</p>
+              <p className="text-xs text-cream-600">Lifetime</p>
             </div>
             <Check className="text-green-500" size={24} />
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+        <div className="bg-cream-100 p-4 rounded-xl shadow-sm border border-cream-200">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-500">Total Earnings</p>
-              <p className="text-2xl font-bold text-gray-900">₹{(analytics.totalEarnings / 1000).toFixed(0)}K</p>
+              <p className="text-sm font-medium text-cream-600">Total Earnings</p>
+              <p className="text-2xl font-bold text-cream-800">₹{(analytics.totalEarnings / 1000).toFixed(0)}K</p>
               <div className="flex items-center mt-1">
                 <ArrowUp size={12} className="text-green-500 mr-1" />
                 <span className="text-xs text-green-600">+{analytics.revenueGrowth}%</span>
@@ -478,22 +478,22 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+        <div className="bg-cream-100 p-4 rounded-xl shadow-sm border border-cream-200">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-500">Pending Requests</p>
-              <p className="text-2xl font-bold text-gray-900">{analytics.pendingRequests}</p>
-              <p className="text-xs text-gray-500">Awaiting response</p>
+              <p className="text-sm font-medium text-cream-600">Pending Requests</p>
+              <p className="text-2xl font-bold text-cream-800">{analytics.pendingRequests}</p>
+              <p className="text-xs text-cream-600">Awaiting response</p>
             </div>
             <Clock className="text-yellow-500" size={24} />
           </div>
         </div>
 
-        <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
+        <div className="bg-cream-100 p-4 rounded-xl shadow-sm border border-cream-200">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-gray-500">Average Rating</p>
-              <p className="text-2xl font-bold text-gray-900">{analytics.avgRating.toFixed(1)}</p>
+              <p className="text-sm font-medium text-cream-600">Average Rating</p>
+              <p className="text-2xl font-bold text-cream-800">{analytics.avgRating.toFixed(1)}</p>
               <div className="flex items-center mt-1">
                 {renderStars(Math.floor(analytics.avgRating))}
               </div>
@@ -505,25 +505,25 @@ const Dashboard: React.FC = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Order Calendar */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100">
+        <div className="bg-cream-50 rounded-xl shadow-sm border border-cream-200">
           <div className="p-6 border-b border-gray-100">
             <div className="flex items-center justify-between">
-              <h3 className="text-lg font-semibold text-gray-900">Order Calendar</h3>
+              <h3 className="text-lg font-semibold text-cream-800">Order Calendar</h3>
               <div className="flex items-center space-x-2">
                 <button
                   onClick={() => navigateMonth('prev')}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  className="p-2 hover:bg-cream-100 rounded-lg transition-colors"
                 >
-                  <ChevronLeft size={20} />
+                  <ChevronLeft size={20} className="text-cream-600" />
                 </button>
-                <span className="text-sm font-medium">
+                <span className="text-sm font-medium text-cream-700">
                   {currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
                 </span>
                 <button
                   onClick={() => navigateMonth('next')}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                  className="p-2 hover:bg-cream-100 rounded-lg transition-colors"
                 >
-                  <ChevronRight size={20} />
+                  <ChevronRight size={20} className="text-cream-600" />
                 </button>
               </div>
             </div>
@@ -532,15 +532,15 @@ const Dashboard: React.FC = () => {
             <div className="flex items-center space-x-4 mt-4 text-xs">
               <div className="flex items-center">
                 <div className="w-3 h-3 bg-green-100 border border-green-300 rounded mr-1"></div>
-                <span>Available</span>
+                <span className="text-cream-600">Available</span>
               </div>
               <div className="flex items-center">
                 <div className="w-3 h-3 bg-blue-100 border border-blue-300 rounded mr-1"></div>
-                <span>Booked</span>
+                <span className="text-cream-600">Booked</span>
               </div>
               <div className="flex items-center">
                 <div className="w-3 h-3 bg-yellow-100 border border-yellow-300 rounded mr-1"></div>
-                <span>Pending</span>
+                <span className="text-cream-600">Pending</span>
               </div>
             </div>
           </div>
@@ -549,7 +549,7 @@ const Dashboard: React.FC = () => {
             {/* Day headers */}
             <div className="grid grid-cols-7 gap-0 mb-2">
               {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
-                <div key={day} className="h-8 flex items-center justify-center text-sm font-medium text-gray-500">
+                <div key={day} className="h-8 flex items-center justify-center text-sm font-medium text-cream-600">
                   {day}
                 </div>
               ))}
@@ -562,16 +562,16 @@ const Dashboard: React.FC = () => {
 
           {/* Selected Date Events */}
           {selectedDate && selectedDateEvents.length > 0 && (
-            <div className="p-4 border-t border-gray-100">
-              <h4 className="font-medium text-gray-900 mb-2">
+            <div className="p-4 border-t border-cream-200">
+              <h4 className="font-medium text-cream-800 mb-2">
                 Events on {selectedDate.toLocaleDateString('en-IN')}
               </h4>
               <div className="space-y-2">
                 {selectedDateEvents.map(event => (
-                  <div key={event.id} className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                  <div key={event.id} className="flex items-center justify-between p-2 bg-cream-100 rounded">
                     <div>
-                      <p className="text-sm font-medium">{event.title}</p>
-                      <p className="text-xs text-gray-500">{event.customer} • {event.time}</p>
+                      <p className="text-sm font-medium text-cream-800">{event.title}</p>
+                      <p className="text-xs text-cream-600">{event.customer} • {event.time}</p>
                     </div>
                     <span className={`px-2 py-1 text-xs rounded-full ${getStatusColor(event.status)}`}>
                       {event.status}
@@ -584,34 +584,34 @@ const Dashboard: React.FC = () => {
         </div>
 
         {/* Earnings Graph */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100">
+        <div className="bg-cream-50 rounded-xl shadow-sm border border-cream-200">
           <div className="p-6 border-b border-gray-100">
-            <h3 className="text-lg font-semibold text-gray-900">Monthly Earnings</h3>
-            <p className="text-sm text-gray-500">Revenue trend over the last 6 months</p>
+            <h3 className="text-lg font-semibold text-cream-800">Monthly Earnings</h3>
+            <p className="text-sm text-cream-600">Revenue trend over the last 6 months</p>
           </div>
           <div className="p-6">
             <div className="space-y-3">
               {monthlyEarnings.map((month) => (
                 <div key={month.month} className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
-                    <span className="text-sm font-medium text-gray-700 w-8">{month.month}</span>
-                    <div className="flex-1 bg-gray-200 rounded-full h-3 w-32">
+                    <span className="text-sm font-medium text-cream-700 w-8">{month.month}</span>
+                    <div className="flex-1 bg-cream-200 rounded-full h-3 w-32">
                       <div 
-                        className="bg-green-500 h-3 rounded-full transition-all duration-300"
+                        className="bg-cream-500 h-3 rounded-full transition-all duration-300"
                         style={{ width: `${(month.amount / maxEarnings) * 100}%` }}
                       ></div>
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm font-medium text-gray-900">₹{(month.amount / 1000).toFixed(0)}K</p>
+                    <p className="text-sm font-medium text-cream-800">₹{(month.amount / 1000).toFixed(0)}K</p>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="mt-4 pt-4 border-t">
+            <div className="mt-4 pt-4 border-t border-cream-200">
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-500">This Month Total</span>
-                <span className="text-lg font-bold text-green-600">₹{(analytics.monthlyEarnings / 1000).toFixed(0)}K</span>
+                <span className="text-sm text-cream-600">This Month Total</span>
+                <span className="text-lg font-bold text-cream-700">₹{(analytics.monthlyEarnings / 1000).toFixed(0)}K</span>
               </div>
             </div>
           </div>
@@ -619,53 +619,53 @@ const Dashboard: React.FC = () => {
       </div>
 
       {/* Recent Orders Table */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100">
+      <div className="bg-cream-50 rounded-xl shadow-sm border border-cream-200">
         <div className="p-6 border-b border-gray-100">
-          <h3 className="text-lg font-semibold text-gray-900">Recent Orders</h3>
+          <h3 className="text-lg font-semibold text-cream-800">Recent Orders</h3>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gray-50">
+            <thead className="bg-cream-100">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-cream-600 uppercase tracking-wider">
                   Event Name
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-cream-600 uppercase tracking-wider">
                   Customer
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-cream-600 uppercase tracking-wider">
                   Date & Time
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-cream-600 uppercase tracking-wider">
                   Location
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-cream-600 uppercase tracking-wider">
                   Status
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-cream-600 uppercase tracking-wider">
                   Actions
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="bg-cream-50 divide-y divide-cream-200">
               {recentBookings.map((booking) => (
-                <tr key={booking._id} className="hover:bg-gray-50">
+                <tr key={booking._id} className="hover:bg-cream-100">
                   <td className="px-6 py-4">
-                    <div className="text-sm font-medium text-gray-900">{booking.eventType}</div>
-                    <div className="text-sm text-gray-500">₹{booking.totalAmount.toLocaleString('en-IN')}</div>
+                    <div className="text-sm font-medium text-cream-800">{booking.eventType}</div>
+                    <div className="text-sm text-cream-600">₹{booking.totalAmount.toLocaleString('en-IN')}</div>
                   </td>
                   <td className="px-6 py-4">
-                    <div className="text-sm font-medium text-gray-900">{booking.customerName}</div>
-                    <div className="text-sm text-gray-500">{booking.customerPhone}</div>
+                    <div className="text-sm font-medium text-cream-800">{booking.customerName}</div>
+                    <div className="text-sm text-cream-600">{booking.customerPhone}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">
+                    <div className="text-sm text-cream-800">
                       {new Date(booking.date).toLocaleDateString('en-IN')}
                     </div>
-                    <div className="text-sm text-gray-500">{booking.time}</div>
+                    <div className="text-sm text-cream-600">{booking.time}</div>
                   </td>
                   <td className="px-6 py-4">
-                    <div className="text-sm text-gray-900 max-w-xs truncate">{booking.location}</div>
+                    <div className="text-sm text-cream-800 max-w-xs truncate">{booking.location}</div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(booking.status)}`}>
@@ -704,22 +704,22 @@ const Dashboard: React.FC = () => {
 
         {recentBookings.length === 0 && (
           <div className="text-center py-12">
-            <Calendar size={48} className="text-gray-400 mx-auto mb-4" />
-            <h3 className="text-lg font-medium text-gray-900 mb-2">No recent orders</h3>
-            <p className="text-gray-600">Your recent bookings will appear here</p>
+            <Calendar size={48} className="text-cream-400 mx-auto mb-4" />
+            <h3 className="text-lg font-medium text-cream-800 mb-2">No recent orders</h3>
+            <p className="text-cream-600">Your recent bookings will appear here</p>
           </div>
         )}
       </div>
 
       {/* Reviews Section */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100">
+      <div className="bg-cream-50 rounded-xl shadow-sm border border-cream-200">
         <div className="p-6 border-b border-gray-100">
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-gray-900">Latest Customer Reviews</h3>
+            <h3 className="text-lg font-semibold text-cream-800">Latest Customer Reviews</h3>
             <div className="flex items-center space-x-2">
               <Star className="text-yellow-400 fill-current" size={16} />
               <span className="font-medium">{analytics.avgRating.toFixed(1)}</span>
-              <span className="text-gray-500 text-sm">({reviews.length} reviews)</span>
+              <span className="text-cream-600 text-sm">({reviews.length} reviews)</span>
             </div>
           </div>
         </div>
@@ -727,20 +727,20 @@ const Dashboard: React.FC = () => {
           {reviews.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {reviews.map((review) => (
-                <div key={review.id} className="border border-gray-200 rounded-lg p-4">
+                <div key={review.id} className="border border-cream-200 rounded-lg p-4 bg-cream-100">
                   <div className="flex items-start justify-between mb-3">
                     <div>
-                      <h4 className="font-medium text-gray-900">{review.customerName}</h4>
-                      <p className="text-sm text-gray-600">{review.eventType}</p>
+                      <h4 className="font-medium text-cream-800">{review.customerName}</h4>
+                      <p className="text-sm text-cream-600">{review.eventType}</p>
                     </div>
                     <div className="flex items-center">
                       {renderStars(review.rating)}
                     </div>
                   </div>
                   
-                  <p className="text-sm text-gray-700 mb-3 line-clamp-3">{review.comment}</p>
+                  <p className="text-sm text-cream-700 mb-3 line-clamp-3">{review.comment}</p>
                   
-                  <div className="flex items-center justify-between text-xs text-gray-500">
+                  <div className="flex items-center justify-between text-xs text-cream-600">
                     <span>{review.date.toLocaleDateString('en-IN')}</span>
                     <span>Order #{review.bookingId}</span>
                   </div>
@@ -749,9 +749,9 @@ const Dashboard: React.FC = () => {
             </div>
           ) : (
             <div className="text-center py-8">
-              <Star size={48} className="text-gray-400 mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-gray-900 mb-2">No reviews yet</h3>
-              <p className="text-gray-600">Customer reviews will appear here after completed events</p>
+              <Star size={48} className="text-cream-400 mx-auto mb-4" />
+              <h3 className="text-lg font-medium text-cream-800 mb-2">No reviews yet</h3>
+              <p className="text-cream-600">Customer reviews will appear here after completed events</p>
             </div>
           )}
         </div>

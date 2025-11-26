@@ -121,24 +121,24 @@ const Settings: React.FC = () => {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="min-h-screen bg-cream-10 p-6 space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Settings</h1>
-          <p className="text-gray-600">Manage your account settings and preferences</p>
+          <h1 className="text-2xl font-bold text-cream-800">Settings</h1>
+          <p className="text-cream-700">Manage your account settings and preferences</p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         {/* Settings Navigation */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
+        <div className="bg-cream-50/80 backdrop-blur-lg rounded-xl shadow-lg border border-cream-200 p-4">
           <nav className="space-y-2">
             <button
               onClick={() => setActiveTab('profile')}
               className={`w-full flex items-center px-3 py-2 rounded-lg text-left transition-colors ${
                 activeTab === 'profile'
-                  ? 'bg-blue-50 text-blue-600'
-                  : 'text-gray-700 hover:bg-gray-50'
+                  ? 'bg-cream-300 text-cream-800'
+                  : 'text-cream-700 hover:bg-cream-200'
               }`}
             >
               <User size={20} className="mr-3" />
@@ -148,8 +148,8 @@ const Settings: React.FC = () => {
               onClick={() => setActiveTab('kyc')}
               className={`w-full flex items-center px-3 py-2 rounded-lg text-left transition-colors ${
                 activeTab === 'kyc'
-                  ? 'bg-blue-50 text-blue-600'
-                  : 'text-gray-700 hover:bg-gray-50'
+                  ? 'bg-cream-300 text-cream-800'
+                  : 'text-cream-700 hover:bg-cream-200'
               }`}
             >
               <Shield size={20} className="mr-3" />
@@ -159,8 +159,8 @@ const Settings: React.FC = () => {
               onClick={() => setActiveTab('security')}
               className={`w-full flex items-center px-3 py-2 rounded-lg text-left transition-colors ${
                 activeTab === 'security'
-                  ? 'bg-blue-50 text-blue-600'
-                  : 'text-gray-700 hover:bg-gray-50'
+                  ? 'bg-cream-300 text-cream-800'
+                  : 'text-cream-700 hover:bg-cream-200'
               }`}
             >
               <Lock size={20} className="mr-3" />
@@ -168,7 +168,7 @@ const Settings: React.FC = () => {
             </button>
           </nav>
 
-          <div className="mt-6 pt-6 border-t border-gray-200">
+          <div className="mt-6 pt-6 border-t border-cream-300">
             <button
               onClick={logout}
               className="w-full flex items-center px-3 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
@@ -180,15 +180,15 @@ const Settings: React.FC = () => {
         </div>
 
         {/* Settings Content */}
-        <div className="lg:col-span-3 bg-white rounded-xl shadow-sm border border-gray-100">
+        <div className="lg:col-span-3 bg-cream-50/80 backdrop-blur-lg rounded-xl shadow-lg border border-cream-200">
           {/* Profile Tab */}
           {activeTab === 'profile' && (
             <div className="p-6">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-semibold text-gray-900">Profile Information</h2>
+                <h2 className="text-xl font-semibold text-cream-800">Profile Information</h2>
                 <button
                   onClick={() => setIsEditing(!isEditing)}
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                  className="px-4 py-2 bg-gradient-to-r from-cream-600 to-cream-700 text-white rounded-lg hover:from-cream-700 hover:to-cream-800 transition-all duration-300 shadow-lg"
                 >
                   {isEditing ? 'Cancel' : 'Edit Profile'}
                 </button>
@@ -197,22 +197,22 @@ const Settings: React.FC = () => {
               {/* Profile Photo */}
               <div className="flex items-center space-x-6 mb-8">
                 <div className="relative">
-                  <div className="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center">
+                  <div className="w-24 h-24 bg-cream-300 rounded-full flex items-center justify-center">
                     {user?.photo ? (
                       <img src={user.photo} alt="Profile" className="w-24 h-24 rounded-full object-cover" />
                     ) : (
-                      <User size={32} className="text-blue-600" />
+                      <User size={32} className="text-cream-700" />
                     )}
                   </div>
                   {isEditing && (
-                    <button className="absolute bottom-0 right-0 p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors">
+                    <button className="absolute bottom-0 right-0 p-2 bg-cream-600 text-white rounded-full hover:bg-cream-700 transition-colors">
                       <Camera size={16} />
                     </button>
                   )}
                 </div>
                 <div>
-                  <h3 className="text-lg font-medium text-gray-900">{user?.name}</h3>
-                  <p className="text-gray-500">{user?.email}</p>
+                  <h3 className="text-lg font-medium text-cream-800">{user?.name}</h3>
+                  <p className="text-cream-600">{user?.email}</p>
                   <div className="flex items-center mt-2">
                     {getKYCStatusIcon()}
                     <span className={`ml-2 px-2 py-1 text-xs font-semibold rounded-full ${getKYCStatusColor()}`}>
@@ -226,65 +226,65 @@ const Settings: React.FC = () => {
               <div className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-cream-800 mb-2">
                       Full Name
                     </label>
                     <div className="relative">
-                      <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                      <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-cream-600" size={20} />
                       <input
                         type="text"
                         value={profileForm.name}
                         onChange={(e) => setProfileForm(prev => ({ ...prev, name: e.target.value }))}
                         disabled={!isEditing}
-                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-50"
+                        className="w-full pl-10 pr-4 py-2 bg-cream-100 border border-cream-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cream-500 disabled:bg-cream-200 text-cream-800"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-cream-800 mb-2">
                       Email Address
                     </label>
                     <div className="relative">
-                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-cream-600" size={20} />
                       <input
                         type="email"
                         value={profileForm.email}
                         onChange={(e) => setProfileForm(prev => ({ ...prev, email: e.target.value }))}
                         disabled={!isEditing}
-                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-50"
+                        className="w-full pl-10 pr-4 py-2 bg-cream-100 border border-cream-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cream-500 disabled:bg-cream-200 text-cream-800"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-cream-800 mb-2">
                       Phone Number
                     </label>
                     <div className="relative">
-                      <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                      <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-cream-600" size={20} />
                       <input
                         type="tel"
                         value={profileForm.phone}
                         onChange={(e) => setProfileForm(prev => ({ ...prev, phone: e.target.value }))}
                         disabled={!isEditing}
-                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-50"
+                        className="w-full pl-10 pr-4 py-2 bg-cream-100 border border-cream-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cream-500 disabled:bg-cream-200 text-cream-800"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-cream-800 mb-2">
                       Address
                     </label>
                     <div className="relative">
-                      <MapPin className="absolute left-3 top-3 text-gray-400" size={20} />
+                      <MapPin className="absolute left-3 top-3 text-cream-600" size={20} />
                       <textarea
                         value={profileForm.address}
                         onChange={(e) => setProfileForm(prev => ({ ...prev, address: e.target.value }))}
                         disabled={!isEditing}
                         rows={3}
-                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-50"
+                        className="w-full pl-10 pr-4 py-2 bg-cream-100 border border-cream-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cream-500 disabled:bg-cream-200 text-cream-800"
                       />
                     </div>
                   </div>
@@ -294,13 +294,13 @@ const Settings: React.FC = () => {
                   <div className="flex justify-end space-x-4">
                     <button
                       onClick={() => setIsEditing(false)}
-                      className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                      className="px-4 py-2 border border-cream-400 text-cream-700 rounded-lg hover:bg-cream-200 transition-colors"
                     >
                       Cancel
                     </button>
                     <button
                       onClick={handleProfileSave}
-                      className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center"
+                      className="px-4 py-2 bg-gradient-to-r from-cream-600 to-cream-700 text-white rounded-lg hover:from-cream-700 hover:to-cream-800 transition-all duration-300 flex items-center shadow-lg"
                     >
                       <Save size={16} className="mr-2" />
                       Save Changes
@@ -314,17 +314,17 @@ const Settings: React.FC = () => {
           {/* KYC Tab */}
           {activeTab === 'kyc' && (
             <div className="p-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">KYC Verification</h2>
+              <h2 className="text-xl font-semibold text-cream-800 mb-6">KYC Verification</h2>
 
               <div className="space-y-6">
                 {/* Current Status */}
-                <div className="bg-gray-50 p-4 rounded-lg">
+                <div className="bg-cream-200 p-4 rounded-lg">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
                       {getKYCStatusIcon()}
                       <div className="ml-3">
-                        <h3 className="font-medium text-gray-900">Verification Status</h3>
-                        <p className="text-sm text-gray-500">
+                        <h3 className="font-medium text-cream-800">Verification Status</h3>
+                        <p className="text-sm text-cream-600">
                           Your KYC verification is currently {user?.aadharStatus?.toLowerCase()}
                         </p>
                       </div>
@@ -339,19 +339,19 @@ const Settings: React.FC = () => {
                 {user?.aadharFront && user?.aadharBack && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <h4 className="font-medium text-gray-900 mb-2">Aadhar Front</h4>
+                      <h4 className="font-medium text-cream-800 mb-2">Aadhar Front</h4>
                       <img 
                         src={user.aadharFront} 
                         alt="Aadhar Front" 
-                        className="w-full h-48 object-cover rounded-lg border border-gray-200"
+                        className="w-full h-48 object-cover rounded-lg border border-cream-300"
                       />
                     </div>
                     <div>
-                      <h4 className="font-medium text-gray-900 mb-2">Aadhar Back</h4>
+                      <h4 className="font-medium text-cream-800 mb-2">Aadhar Back</h4>
                       <img 
                         src={user.aadharBack} 
                         alt="Aadhar Back" 
-                        className="w-full h-48 object-cover rounded-lg border border-gray-200"
+                        className="w-full h-48 object-cover rounded-lg border border-cream-300"
                       />
                     </div>
                   </div>
@@ -361,7 +361,7 @@ const Settings: React.FC = () => {
                 <div className="flex justify-center">
                   <button
                     onClick={() => setShowKYCUpload(true)}
-                    className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center"
+                    className="px-6 py-3 bg-gradient-to-r from-cream-600 to-cream-700 text-white rounded-lg hover:from-cream-700 hover:to-cream-800 transition-all duration-300 flex items-center shadow-lg"
                   >
                     <Upload size={20} className="mr-2" />
                     {user?.aadharFront ? 'Re-upload Documents' : 'Upload KYC Documents'}
@@ -372,17 +372,17 @@ const Settings: React.FC = () => {
               {/* KYC Upload Modal */}
               {showKYCUpload && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-                  <div className="bg-white rounded-xl max-w-md w-full p-6">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4">Upload KYC Documents</h3>
+                  <div className="bg-cream-50/95 backdrop-blur-lg rounded-2xl max-w-md w-full p-6 shadow-2xl border border-cream-200">
+                    <h3 className="text-lg font-semibold text-cream-800 mb-4">Upload KYC Documents</h3>
                     
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-cream-800 mb-2">
                           Aadhar Front
                         </label>
-                        <div className="relative border-2 border-dashed border-gray-300 rounded-lg p-4 text-center hover:border-blue-400 transition-colors cursor-pointer">
-                          <Upload className="text-gray-400 mx-auto mb-2" size={24} />
-                          <p className="text-sm text-gray-600">Click to upload</p>
+                        <div className="relative border-2 border-dashed border-cream-400 rounded-lg p-4 text-center hover:border-cream-500 transition-colors cursor-pointer bg-cream-100">
+                          <Upload className="text-cream-600 mx-auto mb-2" size={24} />
+                          <p className="text-sm text-cream-700">Click to upload</p>
                           <input
                             type="file"
                             accept="image/*"
@@ -390,18 +390,18 @@ const Settings: React.FC = () => {
                             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                           />
                           {kycFiles.front && (
-                            <p className="text-xs text-green-600 mt-1">{kycFiles.front.name}</p>
+                            <p className="text-xs text-cream-600 mt-1">{kycFiles.front.name}</p>
                           )}
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-cream-800 mb-2">
                           Aadhar Back
                         </label>
-                        <div className="relative border-2 border-dashed border-gray-300 rounded-lg p-4 text-center hover:border-blue-400 transition-colors cursor-pointer">
-                          <Upload className="text-gray-400 mx-auto mb-2" size={24} />
-                          <p className="text-sm text-gray-600">Click to upload</p>
+                        <div className="relative border-2 border-dashed border-cream-400 rounded-lg p-4 text-center hover:border-cream-500 transition-colors cursor-pointer bg-cream-100">
+                          <Upload className="text-cream-600 mx-auto mb-2" size={24} />
+                          <p className="text-sm text-cream-700">Click to upload</p>
                           <input
                             type="file"
                             accept="image/*"
@@ -409,7 +409,7 @@ const Settings: React.FC = () => {
                             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                           />
                           {kycFiles.back && (
-                            <p className="text-xs text-green-600 mt-1">{kycFiles.back.name}</p>
+                            <p className="text-xs text-cream-600 mt-1">{kycFiles.back.name}</p>
                           )}
                         </div>
                       </div>
@@ -418,14 +418,14 @@ const Settings: React.FC = () => {
                     <div className="flex space-x-4 mt-6">
                       <button
                         onClick={() => setShowKYCUpload(false)}
-                        className="flex-1 py-2 px-4 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                        className="flex-1 py-2 px-4 border border-cream-400 text-cream-700 rounded-lg hover:bg-cream-200 transition-colors"
                       >
                         Cancel
                       </button>
                       <button
                         onClick={handleKYCUpload}
                         disabled={!kycFiles.front || !kycFiles.back}
-                        className="flex-1 py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
+                        className="flex-1 py-2 px-4 bg-gradient-to-r from-cream-600 to-cream-700 text-white rounded-lg hover:from-cream-700 hover:to-cream-800 disabled:opacity-50 transition-all duration-300 shadow-lg"
                       >
                         Upload
                       </button>
@@ -439,34 +439,47 @@ const Settings: React.FC = () => {
           {/* Security Tab */}
           {activeTab === 'security' && (
             <div className="p-6">
-              <h2 className="text-xl font-semibold text-gray-900 mb-6">Security Settings</h2>
+              <h2 className="text-xl font-semibold text-cream-800 mb-6">Security Settings</h2>
 
               <form onSubmit={handlePasswordChange} className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-cream-800 mb-2">
                     Current Password
                   </label>
                   <input
                     type="password"
                     value={passwordForm.currentPassword}
                     onChange={(e) => setPasswordForm(prev => ({ ...prev, currentPassword: e.target.value }))}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 bg-cream-100 border border-cream-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cream-500 text-cream-800"
                     required
                   />
                 </div>
 
-                <PasswordInput
-                  value={passwordForm.newPassword}
-                  onChange={(value) => setPasswordForm(prev => ({ ...prev, newPassword: value }))}
-                  label="New Password"
-                />
+                <div>
+                  <label className="block text-sm font-medium text-cream-800 mb-2">
+                    New Password
+                  </label>
+                  <input
+                    type="password"
+                    value={passwordForm.newPassword}
+                    onChange={(e) => setPasswordForm(prev => ({ ...prev, newPassword: e.target.value }))}
+                    className="w-full px-4 py-2 bg-cream-100 border border-cream-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cream-500 text-cream-800"
+                    required
+                  />
+                </div>
 
-                <PasswordInput
-                  value={passwordForm.confirmPassword}
-                  onChange={(value) => setPasswordForm(prev => ({ ...prev, confirmPassword: value }))}
-                  label="Confirm New Password"
-                  showValidation={false}
-                />
+                <div>
+                  <label className="block text-sm font-medium text-cream-800 mb-2">
+                    Confirm New Password
+                  </label>
+                  <input
+                    type="password"
+                    value={passwordForm.confirmPassword}
+                    onChange={(e) => setPasswordForm(prev => ({ ...prev, confirmPassword: e.target.value }))}
+                    className="w-full px-4 py-2 bg-cream-100 border border-cream-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cream-500 text-cream-800"
+                    required
+                  />
+                </div>
 
                 {passwordError && (
                   <div className="text-red-600 text-sm bg-red-50 p-3 rounded-lg">{passwordError}</div>
@@ -474,7 +487,7 @@ const Settings: React.FC = () => {
                 
                 <button
                   type="submit"
-                  className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center"
+                  className="px-6 py-2 bg-gradient-to-r from-cream-600 to-cream-700 text-white rounded-lg hover:from-cream-700 hover:to-cream-800 transition-all duration-300 flex items-center shadow-lg"
                 >
                   <Lock size={16} className="mr-2" />
                   Change Password

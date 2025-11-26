@@ -108,7 +108,7 @@ const BroadcastRequests: React.FC = () => {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 bg-cream-10 space-y-6">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Broadcast Requests</h1>
@@ -177,16 +177,17 @@ const BroadcastRequests: React.FC = () => {
       {/* Requests Grid */}
       {loading ? (
         <div className="flex items-center justify-center py-12">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-cream-600"></div>
         </div>
       ) : (
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="bg-cream-50 rounded-xl shadow-sm border border-cream-200 p-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {filteredRequests.map((request) => (
-          <div key={request._id} className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
+          <div key={request._id} className="bg-white rounded-xl shadow-sm border border-cream-200 p-6 hover:shadow-md transition-shadow">
             <div className="flex items-start justify-between mb-4">
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">{request.eventType}</h3>
-                <p className="text-sm text-gray-500">{request.customerName}</p>
+                <h3 className="text-lg font-semibold text-cream-800">{request.eventType}</h3>
+                <p className="text-sm text-cream-600">{request.customerName}</p>
               </div>
               <div className="flex items-center space-x-2">
                 <span className={`px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(request.status)}`}>
@@ -201,32 +202,32 @@ const BroadcastRequests: React.FC = () => {
             </div>
 
             <div className="space-y-3 mb-4">
-              <div className="flex items-center text-sm text-gray-600">
+              <div className="flex items-center text-sm text-cream-600">
                 <Calendar size={16} className="mr-2" />
                 {new Date(request.date).toLocaleDateString('en-IN')} at {request.time}
               </div>
-              <div className="flex items-center text-sm text-gray-600">
+              <div className="flex items-center text-sm text-cream-600">
                 <MapPin size={16} className="mr-2" />
                 {request.location}
               </div>
-              <div className="flex items-center text-sm text-gray-600">
+              <div className="flex items-center text-sm text-cream-600">
                 <Users size={16} className="mr-2" />
                 {request.guestCount} guests
               </div>
-              <div className="flex items-center text-sm text-gray-600">
+              <div className="flex items-center text-sm text-cream-600">
                 <DollarSign size={16} className="mr-2" />
                 Budget: ₹{request.budget.toLocaleString('en-IN')}
               </div>
             </div>
 
             <div className="mb-4">
-              <p className="text-sm text-gray-700 line-clamp-3">{request.requirements}</p>
+              <p className="text-sm text-cream-700 line-clamp-3">{request.requirements}</p>
             </div>
 
-            <div className="flex items-center justify-between pt-4 border-t">
+            <div className="flex items-center justify-between pt-4 border-t border-cream-200">
               <button
                 onClick={() => setSelectedRequest(request)}
-                className="flex items-center text-blue-600 hover:text-blue-700 transition-colors"
+                className="flex items-center text-cream-600 hover:text-cream-700 transition-colors"
               >
                 <Eye size={16} className="mr-1" />
                 View Details
@@ -254,6 +255,7 @@ const BroadcastRequests: React.FC = () => {
           </div>
         ))}
       </div>
+      </div>
       )}
 
       {filteredRequests.length === 0 && (
@@ -271,8 +273,8 @@ const BroadcastRequests: React.FC = () => {
 
       {/* Request Details Modal */}
       {selectedRequest && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-xl max-w-2xl w-full p-6 max-h-[90vh] overflow-y-auto">
+        <div className=" bg-cream-10 fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-cream-10 max-w-2xl w-full p-6 max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-bold text-gray-900">Request Details</h2>
               <button

@@ -73,7 +73,7 @@ const Bookings: React.FC = () => {
 
   const loadServices = async () => {
     try {
-      const response = await fetch('https://eventmanager-backend.vercel.app/api/services', {
+      const response = await fetch('http://localhost:5000/api/services', {
         headers: {
           'Authorization': `Bearer ${JSON.parse(localStorage.getItem('eventManager') || '{}').token}`
         }
@@ -185,7 +185,7 @@ const Bookings: React.FC = () => {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 bg-cream-10 ">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">Bookings Management</h1>
@@ -274,48 +274,48 @@ const Bookings: React.FC = () => {
 
       {/* Bookings Table */}
       {loading ? (
-        <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-12">
+        <div className="bg-cream-50 rounded-lg shadow-sm border border-cream-200 p-12">
           <div className="flex items-center justify-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-cream-600"></div>
           </div>
         </div>
       ) : (
-      <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+      <div className="bg-cream-50 rounded-lg shadow-sm border border-cream-200 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gray-50">
+            <thead className="bg-cream-100">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-cream-600 uppercase tracking-wider">
                   Customer
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-cream-600 uppercase tracking-wider">
                   Event Details
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-cream-600 uppercase tracking-wider">
                   Date & Time
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-cream-600 uppercase tracking-wider">
                   Amount
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-cream-600 uppercase tracking-wider">
                   Status
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-cream-600 uppercase tracking-wider">
                   Actions
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
+            <tbody className="bg-cream-50 divide-y divide-cream-200">
               {filteredBookings.map((booking) => (
-                <tr key={booking._id} className="hover:bg-gray-50">
+                <tr key={booking._id} className="hover:bg-cream-100">
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div>
-                    <div className="text-sm text-gray-500">₹{booking.totalAmount?.toLocaleString('en-IN') || 0}</div>
-                      <div className="text-sm text-gray-500 flex items-center">
+                      <div className="text-sm font-medium text-cream-800">{booking.customerName}</div>
+                      <div className="text-sm text-cream-600 flex items-center">
                         <Phone size={12} className="mr-1" />
                         {booking.customerPhone}
                       </div>
-                      <div className="text-sm text-gray-500 flex items-center">
+                      <div className="text-sm text-cream-600 flex items-center">
                         <Mail size={12} className="mr-1" />
                         {booking.customerEmail}
                       </div>

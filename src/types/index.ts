@@ -141,6 +141,9 @@ export interface CompletedOrder {
 }
 
 export interface Availability {
+  sunday: boolean;
+  saturday: boolean;
+  weekendAvailability: Availability | undefined;
   id: string;
   managerId: string;
   date: Date;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
   Home,
@@ -7,7 +8,8 @@ import {
   Users,
   Radio,
   Settings,
-  LogOut,
+  LogOut, 
+  AlertTriangle,
   X
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
@@ -19,6 +21,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const { logout } = useAuth();
+  const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
 
   const navItems = [
     { to: '/dashboard', label: 'Dashboard', icon: Home },
@@ -28,6 +31,19 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     { to: '/calendar', label: 'Calendar', icon: Calendar },
     { to: '/settings', label: 'Settings', icon: Settings },
   ];
+
+  const handleLogoutClick = () => {
+    setShowLogoutConfirm(true);
+  };
+
+  const confirmLogout = () => {
+    logout();
+    setShowLogoutConfirm(false);
+  };
+
+  const cancelLogout = () => {
+    setShowLogoutConfirm(false);
+  };
 
   return (
     <>
@@ -41,28 +57,28 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       
       {/* Sidebar */}
       <div className={`
-        bg-white h-screen w-64 shadow-lg border-r border-gray-200 flex flex-col
+        bg-cream-50 h-screen w-64 shadow-lg border-r border-cream-200 flex flex-col
         fixed lg:static top-0 left-0 z-50 transform transition-transform duration-300 ease-in-out
         ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         max-w-[280px] sm:w-64
       `}>
         {/* Mobile Close Button */}
-        <div className="lg:hidden flex justify-between items-center p-4 border-b border-gray-200">
+        <div className="lg:hidden flex justify-between items-center p-4 border-b border-cream-200">
           <div>
-            <h2 className="text-lg font-bold text-gray-800">EventPro</h2>
-            <p className="text-xs text-gray-500">Manager Dashboard</p>
+            <h2 className="text-lg font-bold text-cream-700">EventPro</h2>
+            <p className="text-xs text-cream-600">Manager Dashboard</p>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="p-2 rounded-lg hover:bg-cream-100 transition-colors"
           >
-            <X size={24} className="text-gray-600" />
+            <X size={24} className="text-cream-600" />
           </button>
         </div>
         
-        <div className="hidden lg:block p-6 border-b border-gray-200">
-          <h2 className="text-xl font-bold text-gray-800">EventPro</h2>
-          <p className="text-sm text-gray-500">Manager Dashboard</p>
+        <div className="hidden lg:block p-6 border-b border-cream-200">
+          <h2 className="text-xl font-bold text-cream-700">EventPro</h2>
+          <p className="text-sm text-cream-600">Manager Dashboard</p>
         </div>
         
         <nav className="flex-1 p-4">
@@ -82,8 +98,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
                     className={({ isActive }) =>
                       `flex items-center px-4 py-3 rounded-lg transition-colors duration-200 ${
                         isActive
-                          ? 'bg-blue-50 text-blue-600 border-r-2 border-blue-600'
-                          : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
+                          ? 'bg-cream-300 text-cream-800 border-r-2 border-cream-500'
+                          : 'text-cream-700 hover:bg-cream-200 hover:text-cream-800'
                       }`
                     }
                   >
@@ -96,15 +112,46 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           </ul>
         </nav>
         
-        <div className="p-4 border-t border-gray-200">
+        <div className="p-4 border-t border-cream-200">
           <button
-            onClick={logout}
-            className="flex items-center w-full px-4 py-3 text-gray-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-colors duration-200"
+            onClick={handleLogoutClick}
+            className="flex items-center w-full px-4 py-3 text-cream-700 hover:bg-red-50 hover:text-red-600 rounded-lg transition-colors duration-200"
           >
             <LogOut size={20} className="mr-3" />
             <span className="font-medium">Logout</span>
           </button>
         </div>
+
+        {/* Logout Confirmation Modal */}
+        {showLogoutConfirm && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+            <div className="bg-cream-50 rounded-xl max-w-sm w-full p-6 border border-cream-200">
+              <div className="flex items-center mb-4">
+                <AlertTriangle className="text-amber-500 mr-3" size={24} />
+                <h3 className="text-lg font-semibold text-cream-800">Confirm Logout</h3>
+              </div>
+              
+              <p className="text-cream-700 mb-6">
+                Are you sure you want to logout? You'll need to sign in again to access your dashboard.
+              </p>
+              
+              <div className="flex space-x-3">
+                <button
+                  onClick={cancelLogout}
+                  className="flex-1 py-2 px-4 border border-cream-300 text-cream-700 rounded-lg hover:bg-cream-100 transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={confirmLogout}
+                  className="flex-1 py-2 px-4 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+                >
+                  Logout
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
