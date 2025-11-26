@@ -73,7 +73,7 @@ const Bookings: React.FC = () => {
 
   const loadServices = async () => {
     try {
-      const response = await fetch('https://eventbackend-ten.vercel.app/api/services', {
+      const response = await fetch('https://event-manager-app-backend.vercel.app/api/services', {
         headers: {
           'Authorization': `Bearer ${JSON.parse(localStorage.getItem('eventManager') || '{}').token}`
         }

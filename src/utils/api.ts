@@ -1,5 +1,5 @@
 // API Configuration and Helper Functions
-const API_BASE_URL = 'https://eventbackend-ten.vercel.app/api';
+const API_BASE_URL = 'https://event-manager-app-backend.vercel.app/api';
 
 // Get auth token from localStorage
 const getAuthToken = () => {
